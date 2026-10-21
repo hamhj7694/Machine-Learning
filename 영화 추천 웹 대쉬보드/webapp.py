@@ -7,8 +7,17 @@
 
 # 1.모듈 사용을 위해 import
 import pickle
+import os
 import streamlit as st
 from tmdbv3api import Movie, TMDb
+
+# 실행 환경에 잘못된 전역 프록시가 설정되어 있어도 TMDB에는 직접 연결합니다.
+for _proxy_env in ('NO_PROXY', 'no_proxy'):
+    _hosts = [host.strip() for host in os.environ.get(_proxy_env, '').split(',') if host.strip()]
+    for _host in ('api.themoviedb.org', 'image.tmdb.org'):
+        if _host not in _hosts:
+            _hosts.append(_host)
+    os.environ[_proxy_env] = ','.join(_hosts)
 
 # 2. TMBD 영화정보를 쉽게가져오기 위한 객체 생성
 movie= Movie()
