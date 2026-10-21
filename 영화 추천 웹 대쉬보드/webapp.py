@@ -8,6 +8,7 @@
 # 1.모듈 사용을 위해 import
 import pickle
 import os
+from pathlib import Path
 import streamlit as st
 from tmdbv3api import Movie, TMDb
 
@@ -18,6 +19,9 @@ for _proxy_env in ('NO_PROXY', 'no_proxy'):
         if _host not in _hosts:
             _hosts.append(_host)
     os.environ[_proxy_env] = ','.join(_hosts)
+
+# Always resolve the model files relative to this script, including on Streamlit Cloud.
+os.chdir(Path(__file__).resolve().parent)
 
 # 2. TMBD 영화정보를 쉽게가져오기 위한 객체 생성
 movie= Movie()
