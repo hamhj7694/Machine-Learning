@@ -28,7 +28,8 @@ movie= Movie()
 tmdb= TMDb()
 
 # 3. tmdb 의 open api 키를 발급받아 사용
-tmdb.api_key= 'REDACTED_TMDB_API_KEY'
+# API credentials: configure TMDB_API_KEY in Streamlit Secrets or an environment variable.
+tmdb.api_key = os.environ.get("TMDB_API_KEY") or st.secrets["TMDB_API_KEY"]
 
 # 4. 피클로 저장했던 영화 데이터와 유사도표 가져오기
 movies= pickle.load( open('./movies.pickle', 'rb') ) # -- pandas dataframe
