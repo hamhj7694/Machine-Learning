@@ -6,7 +6,7 @@
 
 **개인 프로젝트 · Content-based Recommendation · Similarity Ranking · Streamlit**
 
-### 🌐 [AIflex 배포 서비스 체험하기](https://machine-learning-movies.streamlit.app/) · [상세 Notion 포트폴리오](https://app.notion.com/p/3f7c753ff28a805b969aefccf304b0cc)
+### 🌐 [AIflex 배포 서비스 체험하기](https://machine-learning-movies.streamlit.app/) · [상세 Notion 포트폴리오](https://app.notion.com/p/400c753ff28a81b89284e7bbb2b9cc49)
 
 **[💻 웹앱 소스코드](./영화%20추천%20웹%20대쉬보드/webapp.py)** · **[📦 실행 환경](./영화%20추천%20웹%20대쉬보드/requirements.txt)**
 
@@ -50,7 +50,7 @@ TMDB API로 제목·포스터 조회
 Streamlit 추천 결과 출력
 ```
 
-> **구현 구분:** 현재 공개 저장소에서는 **사전 계산된 Pickle 데이터·유사도 행렬을 불러오는 웹앱**을 확인할 수 있습니다. 앞단의 Feature 추출·벡터화·유사도 행렬 생성 코드는 이 저장소에 포함되어 있지 않아, 상세 학습·전처리 과정은 별도 노트북 검토가 필요합니다.
+> **구현 구분:** 현재 공개 저장소에서는 **사전 계산된 Pickle 데이터·유사도 행렬을 불러오는 웹앱**을 확인할 수 있습니다. 앞단의 Feature 추출·벡터화·유사도 행렬 생성은 [Colab 원본 코드](https://colab.research.google.com/drive/1_dM5sWCGHncKf2EzDhgZ79ZbMIGfYe-4)에서 확인할 수 있으며, 이 공개 저장소에는 배포용 Runtime과 사전 생성 아티팩트를 둡니다.
 
 ### 실제 웹앱의 추천 흐름
 
@@ -134,7 +134,7 @@ TMDB API 키는 환경변수 `TMDB_API_KEY` 또는 Streamlit Secrets에 설정�
 
 **현재 코드로 확인되는 구현:** 영화 선택, 사전 계산된 유사도 행렬 기반 Top 10 조회, TMDB 한국어 제목·포스터 연동, Streamlit 화면 표시.
 
-**추가 검증이 필요한 부분:** 추천 피처와 행렬을 생성한 전처리·모델링 노트북, 추천 품질 평가(예: 사용자 선호도·정답 데이터 기반 지표), 새로운 데이터에 대한 재학습·아티팩트 재생성 절차. **추천 정확도나 정량적인 성능 개선 수치는 별도로 측정하지 않았으므로 기재하지 않았습니다.**
+**모델링 코드 근거:** 추천 피처 구성과 유사도 행렬 계산은 [Google Colab 원본 노트북](https://colab.research.google.com/drive/1_dM5sWCGHncKf2EzDhgZ79ZbMIGfYe-4)에서 확인할 수 있습니다. 배포 저장소에서는 생성된 아티팩트를 불러와 사용합니다.\n\n**추가 검증이 필요한 부분:** 추천 모델링의 재현 가능한 아티팩트 생성·버전 관리, 추천 품질 평가(예: 사용자 선호도·정답 데이터 기반 지표), 새로운 데이터에 대한 재학습·아티팩트 재생성 절차. **추천 정확도나 정량적인 성능 개선 수치는 별도로 측정하지 않았으므로 기재하지 않았습니다.**
 
 **확장 가능한 방향:** 동일한 Feature 설계 → 유사도 → Ranking → Top-N 구조를 음료·메뉴·상품·선물 등 다른 콘텐츠로 전환할 수 있습니다. 다만 **현재 실제 구현·배포된 도메인은 영화 추천**이며, 다른 도메인의 추천 서비스가 이미 완성되었다는 의미는 아닙니다.
 
@@ -143,7 +143,7 @@ TMDB API 키는 환경변수 `TMDB_API_KEY` 또는 Streamlit Secrets에 설정�
 ### 관련 링크
 
 - **[🌐 AIflex 배포 서비스](https://machine-learning-movies.streamlit.app/)**
-- **[📖 Notion 상세 포트폴리오](https://app.notion.com/p/3f7c753ff28a805b969aefccf304b0cc)**
+- **[📖 Notion 상세 포트폴리오](https://app.notion.com/p/400c753ff28a81b89284e7bbb2b9cc49)**
 - **[💻 Streamlit 웹앱 구현](./영화%20추천%20웹%20대쉬보드/webapp.py)**
 
 *TMDB API는 영화 제목·포스터 등 정보 제공에 활용되며, 유사도 기반 추천 순위는 프로젝트의 추천 아티팩트로 계산합니다.*
