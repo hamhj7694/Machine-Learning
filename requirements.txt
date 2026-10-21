@@ -1,4 +1,0 @@
-streamlit
-tmdbv3api
-pandas
-scikit-learn
