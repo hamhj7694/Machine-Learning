@@ -2,3 +2,8 @@
 .streamlit/secrets.toml
 .env
 .env.local
+
+# Block extra local environment files and nested Streamlit secrets
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
